@@ -13,3 +13,10 @@ average_price int(15),
 max_price int(15),
 min_price int(15)
 );
+
+SELECT * FROM yagodki.products;
+
+insert yagodki.products(article, name, current_price, average_price, max_price, min_price)
+values (116691881, 'Джинсы женские скинни', 2445, 2089 , 2609, 1569);
+
+alter table yagodki.products add primary key (article);
