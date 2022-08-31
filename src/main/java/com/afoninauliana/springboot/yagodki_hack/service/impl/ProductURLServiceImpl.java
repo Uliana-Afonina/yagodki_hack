@@ -5,18 +5,22 @@ import com.afoninauliana.springboot.yagodki_hack.service.api.ProductURLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.util.List;
-
 @Service
 public class ProductURLServiceImpl implements ProductURLService {
-    public static final String URL_CBRF_RATES = "http://www.cbr.ru/scripts/XML_daily.asp";
-    public static final String RATES_XML_FILERATH = "src/main/resources/xml/valutesFromCBRF.html";
+    //TODO https://www.wildberries.ru/catalog/11996489/detail.aspx
+//    public static final String URL_WB = "http://www.cbr.ru/scripts/XML_daily.asp";
+    public static final String URL_WB = "https://www.wildberries.ru/catalog/";
+    public static final String PRODUCT_PAGE_HTML_FILERATH = "src/main/resources/html/ProductPage.html";
 
     @Autowired
     private LoadService loadService;
 
-    public void getHtml (){
-        loadService.loadXMLfromURL(URL_CBRF_RATES, RATES_XML_FILERATH);
+    public void getHtml (int article){
+        String productLink = createProductLink(article);
+        loadService.loadXMLfromURL(productLink, PRODUCT_PAGE_HTML_FILERATH);
+    }
+
+    public String createProductLink(int article) {
+        return URL_WB + article + "/detail.aspx";
     }
 }

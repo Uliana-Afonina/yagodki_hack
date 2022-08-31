@@ -14,7 +14,7 @@ public class ProductDataProcessorServiceImpl implements ProductDataProcessorServ
     private ProductRepositoryService productRepositoryService;
 
     @Override
-    public List<Integer> articles (List<Product> productList) {
+    public List<Integer> getArticles(List<Product> productList) {
         List<Integer> articles = null;
 
         for (Product product : productList) {
