@@ -7,17 +7,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductURLServiceImpl implements ProductURLService {
-    //TODO https://www.wildberries.ru/catalog/11996489/detail.aspx
 //    public static final String URL_WB = "http://www.cbr.ru/scripts/XML_daily.asp";
     public static final String URL_WB = "https://www.wildberries.ru/catalog/";
-    public static final String PRODUCT_PAGE_HTML_FILERATH = "src/main/resources/html/ProductPage.html";
+    public static final String PRODUCT_PAGE_HTML_FILEPATH = "src/main/resources/html/ProductPage.html";
 
     @Autowired
     private LoadService loadService;
 
     public void getHtml (int article){
         String productLink = createProductLink(article);
-        loadService.loadXMLfromURL(productLink, PRODUCT_PAGE_HTML_FILERATH);
+        loadService.loadXMLfromURL(productLink, PRODUCT_PAGE_HTML_FILEPATH);
     }
 
     public String createProductLink(int article) {
