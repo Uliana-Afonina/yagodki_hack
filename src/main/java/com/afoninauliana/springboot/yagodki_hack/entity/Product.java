@@ -33,4 +33,7 @@ public class Product {
 
     @Column(name="min_price")
     private int minPrice;
+
+    @Column(name="json_link")
+    private String jsonLink;
 }

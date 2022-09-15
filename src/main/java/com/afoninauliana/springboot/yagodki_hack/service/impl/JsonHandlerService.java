@@ -8,9 +8,9 @@ import java.io.IOException;
 
 @Service
 public class JsonHandlerService {
-
-    public double getAveragePriceFromJson(String expression, File json){
-//        File json = new File("src/main/resources/json/price-history.json");
+    public double getAveragePriceFromJson(String filePath){
+        File json = new File(filePath);
+        String expression = "$..RUB.avg()";
         double avg = 0;
         try {
             avg = JsonPath.parse(json).read(expression);
@@ -20,4 +20,8 @@ public class JsonHandlerService {
         return avg;
     }
 
+    public int getLastPriceFromJson(String filePath) {
+        File json = new File(filePath);
+        String expression = "$..RUB.";
+    }
 }
