@@ -12,14 +12,22 @@ import java.util.List;
 public class ProductDataProcessorServiceImpl implements ProductDataProcessorService {
     @Autowired
     private ProductRepositoryService productRepositoryService;
+    @Autowired
+    private JsonHandlerService jsonHandlerService;
 
     @Override
-    public List<Integer> getArticles(List<Product> productList) {
+    public List<Integer> getAllArticles() {
+        List<Product> productList = productRepositoryService.getAllProducts();
         List<Integer> articles = null;
 
         for (Product product : productList) {
             articles.add(product.getArticle());
         }
+        if (articles == null) {
+            throw new RuntimeException("В базе данных нет продуктов.");
+        }
         return articles;
     }
+
+
 }

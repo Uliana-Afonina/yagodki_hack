@@ -13,8 +13,7 @@ import java.net.URL;
 public class LoadServiceImpl implements LoadService {
 // url = http://www.cbr.ru/scripts/XML_daily.asp
 //    filePath = src/main/resources/xml/file_name.xml
-    @Override
-    public void loadXMLfromURL(String url, String filePath) {
+    public void loadFileFromURL(String url, String filePath) {
         try {
             FileUtils.copyURLToFile(
                     new URL(url),

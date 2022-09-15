@@ -5,5 +5,5 @@ import com.afoninauliana.springboot.yagodki_hack.entity.Product;
 import java.util.List;
 
 public interface ProductDataProcessorService {
-    public List<Integer> getArticles(List<Product> productList);
+    public List<Integer> getAllArticles();
 }

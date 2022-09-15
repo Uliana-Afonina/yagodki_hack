@@ -12,8 +12,10 @@ class HtmlParserServiceTest {
 
     @Test
     public void test() {
-        loadService.loadXMLfromURL("https://card.wb.ru/cards/detail?spp=0&regions=68,83,4,38,80,33,82,86,30,22,31,40,1,48&pricemarginCoeff=1.0&reg=0&appType=1&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=3,6,19,21,8&dest=-1059500,-3788485,-3828424,-3827446&nm=11996489"
-                , "src/main/resources/html/ProductPage.json");
+//        loadService.loadXMLfromURL("https://card.wb.ru/cards/detail?spp=0&regions=68,83,4,38,80,33,82,86,30,22,31,40,1,48&pricemarginCoeff=1.0&reg=0&appType=1&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=3,6,19,21,8&dest=-1059500,-3788485,-3828424,-3827446&nm=11996489"
+//                , "src/main/resources/html/ProductPage.json");
+        loadService.loadFileFromURL("https://basket-01.wb.ru/vol119/part11996/11996489/info/price-history.json"
+                , "src/main/resources/html/price-history.json");
         Elements currentPrice = htmlParserService.getElement(cssOfCurrentPrice);
         System.out.println(currentPrice.size());
         System.out.println(currentPrice.attr("class"));
