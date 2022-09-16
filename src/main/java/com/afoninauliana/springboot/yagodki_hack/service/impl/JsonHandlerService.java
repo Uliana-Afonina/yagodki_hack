@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class JsonHandlerService {
@@ -22,6 +24,14 @@ public class JsonHandlerService {
 
     public int getLastPriceFromJson(String filePath) {
         File json = new File(filePath);
-        String expression = "$..RUB.";
+        String allPricesExpression = "$..RUB";
+        List<Integer> prices = new ArrayList<>();
+        try {
+            prices = JsonPath.parse(json).read(allPricesExpression);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int lastPrice = prices.get(prices.size()-1);
+        return lastPrice;
     }
 }

@@ -22,18 +22,6 @@ public class Product {
     @Column(name="name")
     private String name;
 
-    @Column(name="current_price")
-    private int currentPrice;
-
-    @Column(name="average_price")
-    private int averagePrice;
-
-    @Column(name="max_price")
-    private int maxPrice;
-
-    @Column(name="min_price")
-    private int minPrice;
-
     @Column(name="json_link")
     private String jsonLink;
 }
